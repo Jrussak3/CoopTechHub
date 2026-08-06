@@ -11,9 +11,162 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/subpage-shared.css" />
+    <link rel="stylesheet" href="/css/support-contact-section.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="page-shell">
+      <div data-include="/partials/header.html"></div>
+
+      <section class="hero-section" id="start">
+        <div class="hero-visual segment-reveal segment-delay-1" aria-hidden="true">
+          <img src="/assets/hero-illustration.png" alt="" />
+        </div>
+        <div class="hero-copy segment-reveal segment-delay-2">
+          <h1>Centrum Technologii Spółdzielczych</h1>
+          <p>
+            Tworzymy rozwiązania dla nowoczesnej spółdzielczości. Łączymy technologię
+            z potencjałem społeczności: wdrażamy autorskie modele działania, edukujemy
+            i doradzamy w obszarach energetyki społecznej, rozwoju lokalnego oraz cyfryzacji.
+          </p>
+          <a class="primary-button" href="#kontakt">Skontaktuj się</a>
+        </div>
+      </section>
+
+      <section class="offers-section" id="oferta">
+        <div class="section-header">
+          <h2>Nasza <span>oferta</span></h2>
+        </div>
+
+        <div class="offers-grid segment-reveal segment-delay-3">
+          <article class="offer-card" style="background-color: #F3F0FC">
+            <img class="offer-icon" src="/assets/cyfryzacja.svg" alt="" aria-hidden="true" />
+            <h3 style="color: #4B2935">Cyfryzacja</h3>
+            <ul style="color: #4B2935">
+              <li>Wdrożenie Platformy PLZ</li>
+              <li>Asystenci i chatboty AI</li>
+              <li>Transformacja cyfrowa organizacji</li>
+              <li>Szkolenia z kompetencji cyfrowych</li>
+            </ul>
+            <a class="offer-cta" href="/cyfryzacja.html">Zobacz więcej</a>
+          </article>
+
+          <article class="offer-card" style="background-color: #FCEBF1">
+            <img class="offer-icon" src="/assets/spoldzielnie-energetyczne.svg" alt="" aria-hidden="true" />
+            <h3 style="color: #4B2935">Spółdzielnie energetyczne</h3>
+            <ul style="color: #4B2935">
+              <li>Koncepcje i analizy OZE</li>
+              <li>Dofinansowania inwestycji</li>
+              <li>Zarządzanie projektem</li>
+              <li>Szkolenia i edukacja</li>
+            </ul>
+            <a class="offer-cta" href="/spoldzielnie-energetyczne.html">Zobacz więcej</a>
+          </article>
+
+          <article class="offer-card" style="background-color: #FAFCF0">
+            <img class="offer-icon" src="/assets/rozwoj-lokalny.svg" alt="" aria-hidden="true" />
+            <h3 style="color: #4B2935">Rozwój lokalny</h3>
+            <ul style="color: #4B2935">
+              <li>Transformacja miast</li>
+              <li>Rozwój farm miejskich i kooperatyw spożywczych</li>
+              <li>Inkubacja spółdzielni rozwojowych</li>
+              <li>Warsztaty i szkolenia</li>
+            </ul>
+            <a class="offer-cta" href="/rozwoj-lokalny.html">Zobacz więcej</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="news-section" id="aktualnosci">
+        <div class="section-header section-header--inline">
+          <h2>Aktualności</h2>
+          <a class="publications-link" href="/blog.html">wszystkie aktualności</a>
+        </div>
+
+        <div class="news-grid segment-reveal segment-delay-4" id="news-grid"></div>
+      </section>
+
+      <section class="logos-section" aria-label="Partnerzy i marki" id="logos-section"></section>
+
+      <section class="publications-section" id="publikacje">
+        <div class="publications-header">
+          <div class="section-header">
+            <h2>Publikacje</h2>
+          </div>
+          <a class="publications-link" href="/publikacje.html">wszystkie publikacje</a>
+        </div>
+
+        <div class="publications-carousel segment-reveal segment-delay-5" id="publications-carousel">
+          <button type="button" class="carousel-arrow" data-direction="prev" aria-label="Poprzednia publikacja">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+          </button>
+
+          <div class="carousel-window">
+            <div class="publications-track" id="publications-track"></div>
+          </div>
+
+          <button type="button" class="carousel-arrow" data-direction="next" aria-label="Następna publikacja">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+          </button>
+        </div>
+
+        <div class="publications-highlights segment-reveal segment-delay-6" id="publications-highlights"></div>
+      </section>
+
+      <section class="plz-section" id="plz">
+        <div class="plz-grid">
+          <div class="plz-copy">
+            <h2>Dołącz do naszej społeczności w PLZ</h2>
+            <p>
+              PLZ to spółdzielcza aplikacja społecznościowa. Można na niej m.in. przeprowadzać głosowania i ankiety,
+              sprzedawać produkty i usługi, wymieniać różnego rodzaju informacje, tworzyć wydarzenia i zadania czy
+              pobierać opłaty.
+            </p>
+            <div class="plz-download">
+              <img class="plz-qr" src="/assets/qr/plz-qr.png" alt="Kod QR do aplikacji PLZ" />
+              <div class="store-badges">
+                <a class="store-badge store-badge--google" href="#kontakt" aria-label="Google Play">
+                  <img src="/assets/store/google-play-badge.svg" alt="Google Play" />
+                </a>
+                <a class="store-badge store-badge--apple" href="#kontakt" aria-label="App Store">
+                  <img src="/assets/store/app-store-badge.svg" alt="App Store" />
+                </a>
+              </div>
+            </div>
+            <a class="plz-button" href="#kontakt">Wejdź na stronę</a>
+          </div>
+
+          <div class="plz-visual segment-reveal segment-delay-6" aria-hidden="true">
+            <img class="plz-image" src="/assets/plz-app-mockup.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="support-contact-section home-support-section segment-reveal segment-delay-7">
+        <div class="support-contact-backdrop" aria-hidden="true">
+          <img src="/assets/contact/contact-home.jpg" alt="" />
+          <div class="support-contact-overlay"></div>
+        </div>
+
+        <div class="support-contact-card">
+          <div class="support-contact-content">
+            <h2>Skontaktuj się z nami</h2>
+            <p>
+              Szukasz wsparcia w kwestiach cyfrowych, energetycznych, społecznych lub żadnego rozwiązania? Zostaw nam
+              kontakt, odezwiemy się do ciebie!
+            </p>
+          </div>
+
+          <a class="support-contact-email-link" href="mailto:info@hub.coop">info@hub.coop</a>
+
+          <p class="support-contact-footnote">Na wszystkie wiadomości odpowiadamy w przeciągu 48 godzin</p>
+        </div>
+      </section>
+
+      <div data-include="/partials/footer.html"></div>
+    </div>
+
+    <script type="module" src="/js/pages/home.js"></script>
   </body>
 </html>
