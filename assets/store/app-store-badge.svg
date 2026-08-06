@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">
+  <rect width="120" height="40" rx="6" fill="#000000"/>
+  <rect x="0.5" y="0.5" width="119" height="39" rx="5.5" fill="none" stroke="#a6a6a6"/>
+  <path d="M18.71 20.85c.02-1.87 1.02-3.5 2.63-4.44a4.9 4.9 0 0 0-3.86-2.08c-1.63-.17-3.2.97-4.02.97-.84 0-2.11-.95-3.47-.92a5.15 5.15 0 0 0-4.34 2.63c-1.87 3.24-.48 8.02 1.32 10.64.9 1.28 1.96 2.72 3.33 2.67 1.35-.05 1.85-.86 3.47-.86 1.6 0 2.07.86 3.47.83 1.44-.02 2.35-1.29 3.22-2.58a10.6 10.6 0 0 0 1.47-3c-1.94-.82-3.19-2.7-3.22-4.86Zm-2.71-9.4c.79-.95 1.18-2.17 1.09-3.4a4.7 4.7 0 0 0-3.04 1.57 4.35 4.35 0 0 0-1.11 3.28 3.87 3.87 0 0 0 3.06-1.45Z" fill="#ffffff"/>
+  <text x="27" y="18" font-family="Helvetica, Arial, sans-serif" font-size="7.5" fill="#ffffff">Pobierz w</text>
+  <text x="27" y="30" font-family="Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#ffffff">App Store</text>
+</svg>

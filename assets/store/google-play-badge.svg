@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40">
+  <rect width="135" height="40" rx="6" fill="#000000"/>
+  <rect x="0.5" y="0.5" width="134" height="39" rx="5.5" fill="none" stroke="#a6a6a6"/>
+  <path d="M9.5 8v24a1.6 1.6 0 0 0 2.63 1.23l13.4-13.23-13.4-13.23A1.6 1.6 0 0 0 9.5 8Z" fill="#00d5ff"/>
+  <path d="M25.53 20l4.4-4.35-14.2-8.13a1.58 1.58 0 0 0-1.83.15Z" fill="#00f076"/>
+  <path d="M13.9 32.48a1.58 1.58 0 0 0 1.83.15l14.2-8.13-4.4-4.35Z" fill="#ff3a44"/>
+  <path d="M29.93 15.65l-4.4 4.35 4.4 4.35 5-2.85a1.6 1.6 0 0 0 0-2.99Z" fill="#ffcd00"/>
+  <text x="40" y="18" font-family="Helvetica, Arial, sans-serif" font-size="8.5" fill="#ffffff">POBIERZ Z</text>
+  <text x="40" y="30.5" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Google Play</text>
+</svg>

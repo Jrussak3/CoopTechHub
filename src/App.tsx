@@ -1,35 +1,68 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
+import EnergyPage from './EnergyPage';
+import LocalDevelopmentPage from './LocalDevelopmentPage';
+import DigitalizationPage from './DigitalizationPage';
+import PublicationsPage from './PublicationsPage';
+import TeamPage from './TeamPage';
+import BlogPage from './BlogPage';
+import ProjectsPage from './ProjectsPage';
+import AboutPage from './AboutPage';
+import SupportContactSection from './components/SupportContactSection';
+import ArticleDetailPage from './components/ArticleDetailPage';
+import PublicationDetailPage from './components/PublicationDetailPage';
+import { getArticle } from './data/articles';
 import cyfryzacjaIcon from '../assets/cyfryzacja.svg';
 import rozwójLokalnyIcon from '../assets/rozwoj-lokalny.svg';
 import energiaSpołecznaIcon from '../assets/spoldzielnie-energetyczne.svg';
 import arrowRightBottom from '../assets/arrow_right_bottom.svg';
 import cthLogo from '../assets/brand/cth-logo.svg';
+import iconFacebook from '../assets/social/facebook.svg';
+import iconLinkedin from '../assets/social/linkedin.svg';
+import iconInstagram from '../assets/social/instagram.svg';
+import iconYoutube from '../assets/social/youtube.svg';
+import googlePlayBadge from '../assets/store/google-play-badge.svg';
+import appStoreBadge from '../assets/store/app-store-badge.svg';
+import contactHomeImage from '../assets/contact/contact-home.jpg';
+import plzAppMockup from '../assets/plz-app-mockup.png';
+import plzQrCode from '../assets/qr/plz-qr.png';
+import heroIllustration from '../assets/hero-illustration.png';
+import { getFeaturedPublications, getHighlightedPublications, publications, publicationTagLabels } from './data/publications';
+import { blogPosts } from './data/posts';
 
-const imgFrame = 'https://www.figma.com/api/mcp/asset/c087de0e-4e87-48e8-8cdf-3f17fe0d9a28';
-const imgG59 = 'https://www.figma.com/api/mcp/asset/bdb09f81-55b6-4f38-b537-90a7beb1ed9b';
-const imgFrame1 = 'https://www.figma.com/api/mcp/asset/c18e50a0-7f55-4bd8-b6ba-5a78ebeda9ec';
-const imgInstagram = 'https://www.figma.com/api/mcp/asset/96fd0b9d-4760-47c4-b636-b4e802ac69b6';
+const imgFrame = iconFacebook;
+const imgG59 = iconYoutube;
+const imgFrame1 = iconLinkedin;
+const imgInstagram = iconInstagram;
+
+const ENERGY_PAGE_PATH = '/spoldzielnie-energetyczne';
+const LOCAL_DEVELOPMENT_PAGE_PATH = '/rozwoj-lokalny';
+const DIGITALIZATION_PAGE_PATH = '/cyfryzacja';
+const PUBLICATIONS_PAGE_PATH = '/publikacje';
+const TEAM_PAGE_PATH = '/zespol';
+const BLOG_PAGE_PATH = '/blog';
+const PROJECTS_PAGE_PATH = '/nasze-projekty';
+const ABOUT_PAGE_PATH = '/o-hubie';
 
 const menuItems = [
-  'Strona główna',
-  'O hubie',
-  'Aktualności',
-  'Nasze projekty',
-  'Energia',
-  'Technologie',
-  'Publikacje',
-  'Rozwój lokalny',
-  'Zespół',
-  'Kontakt',
+  { label: 'Strona główna', href: '/' },
+  { label: 'O hubie', href: ABOUT_PAGE_PATH },
+  { label: 'Aktualności', href: BLOG_PAGE_PATH },
+  { label: 'Nasze projekty', href: PROJECTS_PAGE_PATH },
+  { label: 'Spółdzielnie energetyczne', href: ENERGY_PAGE_PATH },
+  { label: 'Technologie', href: DIGITALIZATION_PAGE_PATH },
+  { label: 'Publikacje', href: PUBLICATIONS_PAGE_PATH },
+  { label: 'Rozwój lokalny', href: LOCAL_DEVELOPMENT_PAGE_PATH },
+  { label: 'Zespół', href: TEAM_PAGE_PATH },
 ];
 
 const offers = [
   {
     title: 'Cyfryzacja',
-    bullets: ['Sztuczna inteligencja', 'Wdrożenia open source', 'Transformacja cyfrowa organizacji', 'Etyczna monetyzacja treści'],
+    bullets: ['Wdrożenie Platformy PLZ', 'Asystenci i chatboty AI', 'Transformacja cyfrowa organizacji', 'Szkolenia z kompetencji cyfrowych'],
     accent: '#F3F0FC',
     text: '#4B2935',
     icon: cyfryzacjaIcon,
+    href: DIGITALIZATION_PAGE_PATH,
   },
   {
     title: 'Spółdzielnie energetyczne',
@@ -37,51 +70,20 @@ const offers = [
     accent: '#FCEBF1',
     text: '#4B2935',
     icon: energiaSpołecznaIcon,
+    href: ENERGY_PAGE_PATH,
   },
   {
     title: 'Rozwój lokalny',
-    bullets: ['Spółdzielnie rozwojowe', 'Miejska odporność', 'Rolnictwo miejskie'],
+    bullets: ['Transformacja miast', 'Rozwój farm miejskich i kooperatyw spożywczych', 'Inkubacja spółdzielni rozwojowych', 'Warsztaty i szkolenia'],
     accent: '#FAFCF0',
     text: '#4B2935',
     icon: rozwójLokalnyIcon,
-  },
-];
-
-const posts = [
-  {
-    category: 'Aktualności',
-    title: 'Zakończyliśmy pierwszą edycję programu Regenerator Miast!',
-    description: 'W kwietniu 2026 roku zakończyliśmy pierwszą edycję programu Regeneratora Miast.',
-  },
-  {
-    category: 'Aktualności',
-    title: 'Współpracujemy z lokalnymi społecznościami przy projektach OZE.',
-    description: 'Razem z partnerami przygotowujemy szkolenia i wdrożenia dla spółdzielni energetycznych.',
-  },
-  {
-    category: 'Aktualności',
-    title: 'Nowe narzędzia cyfrowe dla organizacji społecznych.',
-    description: 'Tworzymy rozwiązania wspierające transformację organizacji i ich komunikację.',
-  },
-  {
-    category: 'Aktualności',
-    title: 'Zapraszamy do udziału w warsztatach o energetyce społecznej.',
-    description: 'Organizujemy spotkania dla lokalnych liderów i mieszkańców zainteresowanych transformacją energetyczną.',
-  },
-  {
-    category: 'Aktualności',
-    title: 'Tworzymy mapę potrzeb lokalnych społeczności w obszarze cyfryzacji.',
-    description: 'Badamy potrzeby organizacji, aby projektować rozwiązania realnie wspierające ich rozwój.',
-  },
-  {
-    category: 'Aktualności',
-    title: 'Wkrótce ruszamy z nową edycją programów edukacyjnych.',
-    description: 'Przygotowujemy kolejne szkolenia i narzędzia dla partnerów z całej Polski.',
+    href: LOCAL_DEVELOPMENT_PAGE_PATH,
   },
 ];
 
 const visibleOffers = offers.slice(0, 6);
-const visiblePosts = posts.slice(0, 6);
+const visiblePosts = blogPosts.slice(0, 6);
 
 const logoModules = import.meta.glob('../assets/logo/*.{svg,png,jpg,jpeg,webp}', {
   eager: true,
@@ -104,58 +106,109 @@ const logoItems = Object.keys(logoModules).length
     }));
 
 const logoRows = [
-  logoItems.slice(0, Math.ceil(logoItems.length / 2)),
-  logoItems.slice(Math.ceil(logoItems.length / 2)),
+  logoItems.filter((_, index) => index % 2 === 0),
+  logoItems.filter((_, index) => index % 2 === 1),
 ];
 
-const imgImage7 = 'https://www.figma.com/api/mcp/asset/e46156a2-ed6e-48a1-8841-6df44473e0b8';
-const imgImage8 = 'https://www.figma.com/api/mcp/asset/4f1e570c-91cf-4118-86f9-8281d09fffd5';
-const imgImage9 = 'https://www.figma.com/api/mcp/asset/5c84c7bf-0715-4e19-9dde-eec7bc81aa3d';
 const imgVector1 = 'https://www.figma.com/api/mcp/asset/8780fb60-1fa5-4e31-aa21-97cdb018e594';
-const imgGooglePlayBadge = 'https://www.figma.com/api/mcp/asset/89891818-1e65-4b96-b965-2bd7a9498bc6';
-const imgAppStoreIcon = 'https://www.figma.com/api/mcp/asset/2a971919-2a9b-4792-bd28-786ebe5b5551';
-const imgPlzImage = 'https://www.figma.com/api/mcp/asset/5b6cf357-da95-41ac-9a31-d5a1e851d8cc';
+const imgGooglePlayBadge = googlePlayBadge;
+const imgAppStoreIcon = appStoreBadge;
+const imgPlzImage = plzAppMockup;
+const imgHeroIllustration = heroIllustration;
 
-const imgFooterFacebook = 'https://www.figma.com/api/mcp/asset/12e3edcf-2c93-49e4-bcbf-5677dfd263e2';
-const imgFooterYoutube = 'https://www.figma.com/api/mcp/asset/6371123f-b2cd-4421-846b-7301c474f1de';
-const imgFooterLinkedin = 'https://www.figma.com/api/mcp/asset/de705ff9-4957-43be-b521-b73d1ec65f94';
-const imgFooterInstagram = 'https://www.figma.com/api/mcp/asset/08dd1858-a39c-4cf3-aca0-246541dc851d';
+const imgFooterFacebook = iconFacebook;
+const imgFooterYoutube = iconYoutube;
+const imgFooterLinkedin = iconLinkedin;
+const imgFooterInstagram = iconInstagram;
 
 const footerColumns = [
-  ['Strona główna', 'Aktualności', 'Nasze projekty', 'Energia'],
-  ['Technologie', 'Rozwój lokalny', 'Zespół', 'Kontakt'],
+  [
+    { label: 'Strona główna', href: '/' },
+    { label: 'Aktualności', href: BLOG_PAGE_PATH },
+    { label: 'Nasze projekty', href: PROJECTS_PAGE_PATH },
+    { label: 'Energia', href: ENERGY_PAGE_PATH },
+  ],
+  [
+    { label: 'Technologie', href: DIGITALIZATION_PAGE_PATH },
+    { label: 'Rozwój lokalny', href: LOCAL_DEVELOPMENT_PAGE_PATH },
+    { label: 'Zespół', href: TEAM_PAGE_PATH },
+    { label: 'Kontakt', href: '#kontakt' },
+  ],
 ];
 
-const publications = [
-  {
-    authors: 'Joanna Erbel, Anna Jakubowska, Alicja Wójcik',
-    title: 'Miasta dla suwerenności żywnościowej',
-    description:
-      'Lokalne polityki żywnościowe to dziś nie tylko element strategii rozwoju, ale konkretne narzędzie wzmacniania społecznej odporności. Raport Miasta dla suwerenności żywnościowej pokazuje, jakie działania mogą podejmować samorządy, by wspierać polskie rolnictwo, oraz które rozwiązania są już skutecznie wdrażane.',
-    accent: '#F3F0FC',
-    image: imgImage7,
-  },
-  {
-    authors: 'Bartłomiej Kupiec, Rafał Krenz, Wojciech Matejko, Julia Potrzebowska, Jan Oleszczuk-Zygmuntowski',
-    title: 'Miejska energetyka obywatelska',
-    description:
-      'Celem publikacji jest przedstawienie szeregu możliwości i modeli tworzenia społeczności energetycznych w obszarach miejskich, które mogą przyczynić się do zwiększenia udziału odnawialnych źródeł energii (OZE) w produkcji energii, jak również wzmacniać lokalne społeczności i ich zaangażowanie w transformację energetyczną.',
-    accent: '#FFFDEE',
-    image: imgImage8,
-  },
-  {
-    authors: 'CoopTech Hub, Enercode, Urząd Miasta Krakowa',
-    title: 'Krakowska Energetyka Obywatelska',
-    description:
-      'Kryzys energetyczno-klimatyczny, z jakim się obecnie mierzymy, mobilizuje mieszkanki i mieszkańców, przedsiębiorstwa, instytucje naukowe oraz jednostki samorządu terytorialnego do poszukiwania nowych rozwiązań technicznych i organizacyjnych w celu ograniczenia zużycia energii, zmniejszenia opłat za rachunki oraz ograniczenia emisji gazów cieplarnianych.',
-    accent: '#F3F0FC',
-    image: imgImage9,
-  },
-];
+const featuredPublications = getFeaturedPublications();
+
+const highlightedPublications = getHighlightedPublications();
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePublication, setActivePublication] = useState(0);
+
+  const isEnergyPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === ENERGY_PAGE_PATH;
+
+  const isLocalDevelopmentPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === LOCAL_DEVELOPMENT_PAGE_PATH;
+
+  const isDigitalizationPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === DIGITALIZATION_PAGE_PATH;
+
+  const isPublicationsPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === PUBLICATIONS_PAGE_PATH;
+
+  const isTeamPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === TEAM_PAGE_PATH;
+
+  const isBlogPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === BLOG_PAGE_PATH;
+
+  const isProjectsPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === PROJECTS_PAGE_PATH;
+
+  const isAboutPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname.replace(/\/+$/, '') === ABOUT_PAGE_PATH;
+
+  const normalizedPath = typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') : '';
+
+  const projectArticle = normalizedPath.startsWith(`${PROJECTS_PAGE_PATH}/`)
+    ? getArticle('projekt', normalizedPath.slice(PROJECTS_PAGE_PATH.length + 1))
+    : undefined;
+
+  const blogArticle = normalizedPath.startsWith(`${BLOG_PAGE_PATH}/`)
+    ? getArticle('aktualnosc', normalizedPath.slice(BLOG_PAGE_PATH.length + 1))
+    : undefined;
+
+  const publicationArticle = normalizedPath.startsWith(`${PUBLICATIONS_PAGE_PATH}/`)
+    ? getArticle('publikacja', normalizedPath.slice(PUBLICATIONS_PAGE_PATH.length + 1))
+    : undefined;
+
+  const publicationItem = normalizedPath.startsWith(`${PUBLICATIONS_PAGE_PATH}/`)
+    ? publications.find((publication) => publication.id === normalizedPath.slice(PUBLICATIONS_PAGE_PATH.length + 1))
+    : undefined;
+
+  const article = projectArticle ?? blogArticle ?? publicationArticle;
+
+  useEffect(() => {
+    if (!featuredPublications.length) {
+      return;
+    }
+
+    const rotationTimer = window.setInterval(() => {
+      setActivePublication((value) => (value === featuredPublications.length - 1 ? value : value + 1));
+    }, 5000);
+
+    return () => {
+      window.clearInterval(rotationTimer);
+    };
+  }, []);
 
   useLayoutEffect(() => {
     if (!window.location.hash) {
@@ -232,6 +285,46 @@ export default function App() {
     };
   }, []);
 
+  if (article) {
+    return <ArticleDetailPage article={article} />;
+  }
+
+  if (publicationItem) {
+    return <PublicationDetailPage publication={publicationItem} />;
+  }
+
+  if (isEnergyPage) {
+    return <EnergyPage />;
+  }
+
+  if (isLocalDevelopmentPage) {
+    return <LocalDevelopmentPage />;
+  }
+
+  if (isDigitalizationPage) {
+    return <DigitalizationPage />;
+  }
+
+  if (isPublicationsPage) {
+    return <PublicationsPage />;
+  }
+
+  if (isTeamPage) {
+    return <TeamPage />;
+  }
+
+  if (isBlogPage) {
+    return <BlogPage />;
+  }
+
+  if (isProjectsPage) {
+    return <ProjectsPage />;
+  }
+
+  if (isAboutPage) {
+    return <AboutPage />;
+  }
+
   return (
     <div className="page-shell">
       <header className="topbar">
@@ -270,24 +363,24 @@ export default function App() {
           </div>
 
           <nav className="mobile-nav">
-            {menuItems.map((item, index) => (
-              <a key={item} href={index === 0 ? '#start' : '#'} onClick={() => setMenuOpen(false)}>
-                {item}
+            {menuItems.map((item) => (
+              <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)}>
+                {item.label}
               </a>
             ))}
           </nav>
 
           <div className="social-links" aria-label="Social media">
-            <a href="#kontakt" aria-label="Facebook" className="social-link">
+            <a href="https://www.facebook.com/cooptechhub/" aria-label="Facebook" className="social-link" target="_blank" rel="noopener noreferrer">
               <img src={imgFrame} alt="" aria-hidden="true" />
             </a>
-            <a href="#kontakt" aria-label="LinkedIn" className="social-link">
+            <a href="https://www.youtube.com/@cooptechhub" aria-label="YouTube" className="social-link" target="_blank" rel="noopener noreferrer">
               <img src={imgG59} alt="" aria-hidden="true" />
             </a>
-            <a href="#kontakt" aria-label="X" className="social-link">
+            <a href="https://www.linkedin.com/company/cooptechhub/" aria-label="LinkedIn" className="social-link" target="_blank" rel="noopener noreferrer">
               <img src={imgFrame1} alt="" aria-hidden="true" />
             </a>
-            <a href="#kontakt" aria-label="Instagram" className="social-link">
+            <a href="https://www.instagram.com/cooptechhub/" aria-label="Instagram" className="social-link" target="_blank" rel="noopener noreferrer">
               <img src={imgInstagram} alt="" aria-hidden="true" />
             </a>
           </div>
@@ -295,7 +388,10 @@ export default function App() {
       </aside>
 
       <section className="hero-section" id="start">
-        <div className="hero-copy segment-reveal segment-delay-1">
+        <div className="hero-visual segment-reveal segment-delay-1" aria-hidden="true">
+          <img src={imgHeroIllustration} alt="" />
+        </div>
+        <div className="hero-copy segment-reveal segment-delay-2">
           <h1>Centrum Technologii Spółdzielczych</h1>
           <p>
             Tworzymy rozwiązania dla nowoczesnej spółdzielczości. Łączymy technologię
@@ -306,7 +402,6 @@ export default function App() {
             Skontaktuj się
           </a>
         </div>
-        <div className="hero-visual segment-reveal segment-delay-2" aria-hidden="true" />
       </section>
 
       <section className="offers-section" id="oferta">
@@ -326,7 +421,15 @@ export default function App() {
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              <a className="offer-cta" href="#" onClick={(event) => event.preventDefault()}>
+              <a
+                className="offer-cta"
+                href={offer.href}
+                onClick={(event) => {
+                  if (offer.href === '#') {
+                    event.preventDefault();
+                  }
+                }}
+              >
                 Zobacz więcej
               </a>
             </article>
@@ -335,18 +438,26 @@ export default function App() {
       </section>
 
       <section className="news-section" id="aktualnosci">
-        <div className="section-header">
+        <div className="section-header section-header--inline">
           <h2>Aktualności</h2>
+          <a className="publications-link" href={BLOG_PAGE_PATH}>
+            wszystkie aktualności
+          </a>
         </div>
 
         <div className="news-grid segment-reveal segment-delay-4">
           {visiblePosts.map((post) => (
-            <article key={post.title} className="news-card">
-              <p className="news-category">{post.category}</p>
+            <a
+              key={post.id}
+              className="news-card"
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <h3>{post.title}</h3>
               <p className="news-description">{post.description}</p>
               <img className="news-arrow" src={arrowRightBottom} alt="" aria-hidden="true" />
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -355,20 +466,15 @@ export default function App() {
         {logoRows.map((row, rowIndex) => (
           <div key={`logo-row-${rowIndex}`} className="logos-row">
             <div className="logos-track" style={{ ['--duration' as string]: `${18 + rowIndex * 3}s` }}>
-              <div className="logos-group">
-                {row.map((logo) => (
-                  <div key={`${logo.id}-a`} className="logo-pill">
-                    {logo.src ? <img src={logo.src} alt={logo.alt} /> : <span>{logo.alt}</span>}
-                  </div>
-                ))}
-              </div>
-              <div className="logos-group">
-                {row.map((logo) => (
-                  <div key={`${logo.id}-b`} className="logo-pill">
-                    {logo.src ? <img src={logo.src} alt={logo.alt} /> : <span>{logo.alt}</span>}
-                  </div>
-                ))}
-              </div>
+              {['a', 'b', 'c', 'd'].map((copy) => (
+                <div key={copy} className="logos-group">
+                  {row.map((logo) => (
+                    <div key={`${logo.id}-${copy}`} className="logo-pill">
+                      {logo.src ? <img src={logo.src} alt={logo.alt} /> : <span>{logo.alt}</span>}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         ))}
@@ -379,8 +485,8 @@ export default function App() {
           <div className="section-header">
             <h2>Publikacje</h2>
           </div>
-          <a className="publications-link" href="#kontakt">
-            wszystkie Publikacje
+          <a className="publications-link" href={PUBLICATIONS_PAGE_PATH}>
+            wszystkie publikacje
           </a>
         </div>
 
@@ -389,7 +495,8 @@ export default function App() {
             type="button"
             className="carousel-arrow"
             aria-label="Poprzednia publikacja"
-            onClick={() => setActivePublication((value) => (value === 0 ? publications.length - 1 : value - 1))}
+            disabled={activePublication === 0}
+            onClick={() => setActivePublication((value) => Math.max(0, value - 1))}
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15 6l-6 6 6 6" />
@@ -401,30 +508,40 @@ export default function App() {
               className="publications-track"
               style={{ transform: `translateX(-${activePublication * 100}%)` }}
             >
-              {publications.map((publication) => (
-                <article key={publication.title} className="publication-slide">
-                  <div className="publication-visual" style={{ backgroundColor: publication.accent }}>
+              {featuredPublications.map((publication) => (
+                <a
+                  key={publication.title}
+                  className={`publication-slide is-${publication.tag}`}
+                  href={`${PUBLICATIONS_PAGE_PATH}/${publication.id}`}
+                >
+                  <div className={`publication-visual is-${publication.tag}`}>
                     <div className="publication-image-stack">
-                      <img src={publication.image} alt="" aria-hidden="true" />
+                      {publication.thumbnailUrl ? (
+                        <img src={publication.thumbnailUrl} alt={`Miniatura publikacji: ${publication.title}`} loading="lazy" />
+                      ) : (
+                        <img className="publication-image-fallback" src={cthLogo} alt="" aria-hidden="true" />
+                      )}
                     </div>
                   </div>
 
                   <div className="publication-content">
                     <div className="publication-body">
-                      <p className="publication-authors">{publication.authors}</p>
+                      <p className="publication-authors">
+                        {publication.authors.join(', ')} · {publication.date}
+                      </p>
                       <h3>{publication.title}</h3>
                       <p className="publication-copy">{publication.description}</p>
                     </div>
 
                     <div className="publication-footer">
                       <img className="publication-divider" src={imgVector1} alt="" aria-hidden="true" />
-                      <div className="publication-link-row">
+                      <span className="publication-link-row">
                         <span>czytaj więcej</span>
                         <span aria-hidden="true">→</span>
-                      </div>
+                      </span>
                     </div>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
@@ -433,12 +550,31 @@ export default function App() {
             type="button"
             className="carousel-arrow"
             aria-label="Następna publikacja"
-            onClick={() => setActivePublication((value) => (value === publications.length - 1 ? 0 : value + 1))}
+            disabled={activePublication === featuredPublications.length - 1}
+            onClick={() =>
+              setActivePublication((value) => Math.min(featuredPublications.length - 1, value + 1))
+            }
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M9 6l6 6-6 6" />
             </svg>
           </button>
+
+        </div>
+
+        <div className="publications-highlights segment-reveal segment-delay-6">
+          {highlightedPublications.map((publication) => (
+            <a
+              key={publication.id}
+              className="publication-highlight-card"
+              href={`${PUBLICATIONS_PAGE_PATH}/${publication.id}`}
+            >
+              <p className="publication-highlight-category">{publicationTagLabels[publication.tag]}</p>
+              <h3>{publication.title}</h3>
+              <p className="publication-highlight-description">{publication.description}</p>
+              <img className="publication-highlight-arrow" src={arrowRightBottom} alt="" aria-hidden="true" />
+            </a>
+          ))}
         </div>
       </section>
 
@@ -451,17 +587,20 @@ export default function App() {
               sprzedawać produkty i usługi, wymieniać różnego rodzaju informacje, tworzyć wydarzenia i zadania czy
               pobierać opłaty.
             </p>
-            <a className="plz-button" href="#kontakt">
-              Dowiedz się więcej
-            </a>
-            <div className="store-badges">
-              <a className="store-badge store-badge--google" href="#kontakt" aria-label="Google Play">
-                <img src={imgGooglePlayBadge} alt="Google Play" />
-              </a>
-              <a className="store-badge store-badge--apple" href="#kontakt" aria-label="App Store">
-                <img src={imgAppStoreIcon} alt="App Store" />
-              </a>
+            <div className="plz-download">
+              <img className="plz-qr" src={plzQrCode} alt="Kod QR do aplikacji PLZ" />
+              <div className="store-badges">
+                <a className="store-badge store-badge--google" href="#kontakt" aria-label="Google Play">
+                  <img src={imgGooglePlayBadge} alt="Google Play" />
+                </a>
+                <a className="store-badge store-badge--apple" href="#kontakt" aria-label="App Store">
+                  <img src={imgAppStoreIcon} alt="App Store" />
+                </a>
+              </div>
             </div>
+            <a className="plz-button" href="#kontakt">
+              Wejdź na stronę
+            </a>
           </div>
 
           <div className="plz-visual segment-reveal segment-delay-6" aria-hidden="true">
@@ -470,7 +609,14 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="site-footer">
+      <SupportContactSection
+        className="home-support-section segment-reveal segment-delay-7"
+        title="Skontaktuj się z nami"
+        description="Szukasz wsparcia w kwestiach cyfrowych, energetycznych, społecznych lub żadnego rozwiązania? Zostaw nam kontakt, odezwiemy się do ciebie!"
+        backgroundImageSrc={contactHomeImage}
+      />
+
+      <footer className="site-footer" id="kontakt">
         <div className="footer-top">
           <p className="footer-brand">CoopTech Hub</p>
           <p className="footer-subtitle">Centrum Technologii Spółdzielczych</p>
@@ -480,8 +626,8 @@ export default function App() {
           {footerColumns.map((column, index) => (
             <nav key={`footer-column-${index}`} className="footer-column">
               {column.map((item) => (
-                <a key={item} href="#">
-                  {item}
+                <a key={item.label} href={item.href}>
+                  {item.label}
                 </a>
               ))}
             </nav>
@@ -498,16 +644,16 @@ export default function App() {
           </div>
 
           <div className="footer-socials">
-            <a href="#kontakt" aria-label="Facebook">
+            <a href="https://www.facebook.com/cooptechhub/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
               <img src={imgFooterFacebook} alt="" aria-hidden="true" />
             </a>
-            <a href="#kontakt" aria-label="YouTube">
+            <a href="https://www.youtube.com/@cooptechhub" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
               <img src={imgFooterYoutube} alt="" aria-hidden="true" />
             </a>
-            <a href="#kontakt" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/cooptechhub/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <img src={imgFooterLinkedin} alt="" aria-hidden="true" />
             </a>
-            <a href="#kontakt" aria-label="Instagram">
+            <a href="https://www.instagram.com/cooptechhub/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
               <img src={imgFooterInstagram} alt="" aria-hidden="true" />
             </a>
           </div>
