@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publikacje — Centrum Technologii Spółdzielczych</title>
+    <meta name="description" content="Najnowsze publikacje Centrum Technologii Spółdzielczych." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/subpage-shared.css" />
+    <link rel="stylesheet" href="/css/support-contact-section.css" />
+    <link rel="stylesheet" href="/css/publications-page.css" />
+  </head>
+  <body>
+    <div class="publications-page page-shell">
+      <div data-include="/partials/header.html"></div>
+
+      <main>
+        <section class="publications-page-hero">
+          <div class="publications-page-wrapper">
+            <h1>Publikacje</h1>
+            <p>Najnowsze publikacje znajdują się poniżej.</p>
+          </div>
+        </section>
+
+        <section class="publications-page-list-section">
+          <div class="publications-page-wrapper">
+            <div class="publications-page-filters" role="tablist" aria-label="Filtry publikacji" id="publications-page-filters"></div>
+
+            <div class="publications-page-grid" id="publications-page-grid"></div>
+
+            <div class="publications-page-load-more" id="publications-page-load-more" aria-hidden="true"></div>
+          </div>
+        </section>
+      </main>
+
+      <div data-include="/partials/footer.html"></div>
+    </div>
+
+    <script type="module" src="/js/pages/publications.js"></script>
+  </body>
+</html>

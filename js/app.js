@@ -139,8 +139,13 @@ export function initPublicationsCarousel(root) {
   render();
 }
 
-export async function initShell() {
+export async function initShell({ topbarClass } = {}) {
   await includePartials();
+
+  if (topbarClass) {
+    document.querySelector('.topbar')?.classList.add(topbarClass);
+  }
+
   initMobileMenu();
   stripHashFromUrl();
   initScrollReveal();

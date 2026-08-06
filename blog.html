@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Centrum Technologii Spółdzielczych</title>
+    <meta name="description" content="Aktualności i wpisy blogowe CoopTech Hub." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/subpage-shared.css" />
+    <link rel="stylesheet" href="/css/support-contact-section.css" />
+    <link rel="stylesheet" href="/css/blog-page.css" />
+  </head>
+  <body>
+    <div class="blog-page page-shell">
+      <div data-include="/partials/header.html"></div>
+
+      <main>
+        <section class="blog-page-hero">
+          <div class="blog-page-wrapper" id="blog-featured-post">
+          </div>
+        </section>
+
+        <section class="blog-page-list-section">
+          <div class="blog-page-wrapper">
+            <div class="blog-page-grid" id="blog-page-grid"></div>
+          </div>
+        </section>
+      </main>
+
+      <div data-include="/partials/footer.html"></div>
+    </div>
+
+    <script type="module" src="/js/pages/blog.js"></script>
+  </body>
+</html>
