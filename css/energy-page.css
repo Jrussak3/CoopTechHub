@@ -233,23 +233,6 @@
   margin-top: 2rem;
 }
 
-.energy-section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 120px;
-  margin-bottom: 80px;
-}
-
-.energy-section-head h2 {
-  margin: 0;
-  font-size: 56px;
-  line-height: 56px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-}
-
 .energy-realizations {
   display: grid;
   gap: 2.5rem;
@@ -351,11 +334,6 @@
     padding-bottom: 3rem;
   }
 
-  .energy-section-head {
-    margin-top: 3.75rem;
-    margin-bottom: 2.5rem;
-  }
-
   .energy-services-grid,
   .energy-pricing {
     grid-template-columns: 1fr;
@@ -450,16 +428,6 @@
 
   .energy-step-panel {
     padding-right: 0;
-  }
-
-  .energy-section-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .energy-section-head h2 {
-    font-size: clamp(2rem, 10vw, 2.5rem);
-    line-height: 1.1;
   }
 
   .energy-pricing-card h3,
