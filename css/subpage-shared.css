@@ -50,3 +50,29 @@
     font-size: 1.4rem;
   }
 }
+
+.subpage-hero-badge {
+  display: inline-block;
+  margin: 0 0 1.75rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  background: var(--hero-accent, #fcebf1);
+  color: #4b2935;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.subpage-hero-highlight {
+  display: inline-block;
+  background: var(--hero-accent, #fcebf1);
+  border-radius: 24px;
+  padding: 0.05em 0.35em;
+}
+
+@media (max-width: 480px) {
+  .subpage-hero-badge {
+    margin-bottom: 1.25rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+}
