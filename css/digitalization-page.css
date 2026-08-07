@@ -14,7 +14,7 @@
 }
 
 .digital-hero-section {
-  min-height: max(800px, calc(100vh - 96px));
+  min-height: 100vh;
   max-width: 1700px;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -52,7 +52,7 @@
 }
 
 .digital-hero-copy .primary-button {
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 .digital-services-section,
