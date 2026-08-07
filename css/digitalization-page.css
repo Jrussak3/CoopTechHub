@@ -14,6 +14,9 @@
 
 .digital-hero-section {
   min-height: max(800px, calc(100vh - 96px));
+  max-width: 1700px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,25 +26,26 @@
 
 .digital-hero-copy {
   --hero-accent: #f3f0fc;
-  width: 1200px;
+  width: 1600px;
   max-width: 100%;
   text-align: center;
 }
 
 .digital-hero-copy h1 {
   margin: 0;
-  line-height: 1;
+  line-height: 1.25;
 }
 
 .digital-hero-copy h1 > span {
   display: block;
-  font-size: clamp(2.2rem, 4.3vw, 4rem);
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
   font-weight: 300;
 }
 
 .digital-hero-copy h1 strong {
   display: block;
-  font-size: clamp(2.2rem, 4.3vw, 4rem);
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  margin-top: 0.2em;
   line-height: 1.08;
   font-weight: 700;
 }
