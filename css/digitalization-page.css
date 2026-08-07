@@ -13,7 +13,7 @@
 }
 
 .digital-hero-section {
-  min-height: calc(100vh - 96px);
+  min-height: max(800px, calc(100vh - 96px));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,7 @@
 
 .digital-hero-copy h1 > span {
   display: block;
-  font-size: clamp(2.8rem, 6.3vw, 5.6rem);
+  font-size: clamp(2.2rem, 4.3vw, 4rem);
   font-weight: 300;
 }
 
@@ -325,7 +325,7 @@
   }
 
   .digital-hero-copy h1 > span {
-    font-size: clamp(2.2rem, 10vw, 3rem);
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
   }
 
   .digital-hero-copy h1 strong {
