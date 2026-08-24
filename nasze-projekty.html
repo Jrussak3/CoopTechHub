@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nasze projekty — Centrum Technologii Spółdzielczych</title>
+    <meta name="description" content="Case studies naszych działań." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/subpage-shared.css" />
+    <link rel="stylesheet" href="/css/support-contact-section.css" />
+    <link rel="stylesheet" href="/css/projects-page.css" />
+  </head>
+  <body>
+    <div class="projects-page page-shell">
+      <div data-include="/partials/header.html"></div>
+
+      <main>
+        <section class="projects-page-hero">
+          <div class="projects-page-wrapper">
+            <h1>Nasze projekty</h1>
+            <p>Case studies naszych działań.</p>
+          </div>
+        </section>
+
+        <section class="projects-page-list-section">
+          <div class="projects-page-wrapper">
+            <div class="projects-page-filters" role="tablist" aria-label="Filtry projektów" id="projects-page-filters"></div>
+
+            <div class="projects-page-grid" id="projects-page-grid"></div>
+          </div>
+        </section>
+      </main>
+
+      <div data-include="/partials/footer.html"></div>
+    </div>
+
+    <script type="module" src="/js/pages/projects.js"></script>
+  </body>
+</html>
