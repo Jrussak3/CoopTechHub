@@ -24,6 +24,33 @@
   padding: 0 5rem;
 }
 
+.energy-promo-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%
+}
+.energy-promo-card {
+  width: 100%;
+  padding: 40px;
+  background-color: #fcebf1;
+  border-radius: 24px; 
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.energy-promo-copy {
+  width: 100%;
+}
+
+.energy-promo-visual {
+  width: 100%;
+  max-width: 540px;
+  height: 300px;
+  background-color: #fff;
+}
+
 .energy-hero-section {
   min-height: 100vh;
   max-width: 1700px;
@@ -57,8 +84,7 @@
 .energy-hero-copy h1 strong {
   display: block;
   font-size: clamp(2.8rem, 6vw, 5.6rem);
-  margin-top: 0.2em;
-  line-height: 1.08;
+  line-height: 1.5;
   font-weight: 700;
 }
 
@@ -319,6 +345,9 @@
   .energy-projects-section {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+  .energy-promo-visual {
+    display: none;
   }
 
   .energy-hero-section {
