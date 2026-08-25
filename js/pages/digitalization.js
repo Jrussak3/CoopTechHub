@@ -35,16 +35,16 @@ function renderOfferItems() {
   list.innerHTML = digitalOfferItems
     .map(
       (item, index) => `
-        <article class="digital-offer-item ${index === 0 ? 'is-open' : ''}" data-offer="${item.number}">
-          <button type="button" class="digital-offer-trigger" aria-expanded="${index === 0}">
-            <div class="digital-offer-head">
-              <p class="digital-offer-number">${item.number}</p>
+        <article class="subpage-offer-item ${index === 0 ? 'is-open' : ''}" data-offer="${item.number}">
+          <button type="button" class="subpage-offer-trigger" aria-expanded="${index === 0}">
+            <div class="subpage-offer-head">
+              <p class="subpage-offer-number">${item.number}</p>
               <h3 class="subpage-step-title">${item.title}</h3>
             </div>
-            <span class="digital-offer-indicator" aria-hidden="true">${index === 0 ? '−' : '+'}</span>
+            <span class="subpage-offer-indicator" aria-hidden="true">${index === 0 ? '−' : '+'}</span>
           </button>
 
-          <div class="digital-offer-panel">
+          <div class="subpage-offer-panel">
             <p>${item.description}</p>
           </div>
         </article>
@@ -52,9 +52,9 @@ function renderOfferItems() {
     )
     .join('');
 
-  list.querySelectorAll('.digital-offer-item').forEach((item) => {
-    const trigger = item.querySelector('.digital-offer-trigger');
-    const indicator = item.querySelector('.digital-offer-indicator');
+  list.querySelectorAll('.subpage-offer-item').forEach((item) => {
+    const trigger = item.querySelector('.subpage-offer-trigger');
+    const indicator = item.querySelector('.subpage-offer-indicator');
 
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.toggle('is-open');

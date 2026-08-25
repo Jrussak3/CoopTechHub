@@ -45,26 +45,26 @@ function renderProcessSteps() {
   list.innerHTML = processSteps
     .map(
       (step, index) => `
-        <article class="energy-step ${index === 0 ? 'is-open' : ''}" data-step="${step.number}">
-          <button type="button" class="energy-step-trigger" aria-expanded="${index === 0}">
-            <div class="energy-step-head">
-              <p class="energy-step-number">${step.number}</p>
+        <article class="subpage-offer-item ${index === 0 ? 'is-open' : ''}" data-step="${step.number}">
+          <button type="button" class="subpage-offer-trigger" aria-expanded="${index === 0}">
+            <div class="subpage-offer-head">
+              <p class="subpage-offer-number">${step.number}</p>
               <h3 class="subpage-step-title">${step.title}</h3>
             </div>
-            <span class="energy-step-indicator" aria-hidden="true">${index === 0 ? '−' : '+'}</span>
+            <span class="subpage-offer-indicator" aria-hidden="true">${index === 0 ? '−' : '+'}</span>
           </button>
 
-          <div class="energy-step-panel">
-            <p class="energy-step-copy">${step.description}</p>
+          <div class="subpage-offer-panel">
+            <p>${step.description}</p>
           </div>
         </article>
       `,
     )
     .join('');
 
-  list.querySelectorAll('.energy-step').forEach((step) => {
-    const trigger = step.querySelector('.energy-step-trigger');
-    const indicator = step.querySelector('.energy-step-indicator');
+  list.querySelectorAll('.subpage-offer-item').forEach((step) => {
+    const trigger = step.querySelector('.subpage-offer-trigger');
+    const indicator = step.querySelector('.subpage-offer-indicator');
 
     trigger.addEventListener('click', () => {
       const isOpen = step.classList.toggle('is-open');
@@ -79,7 +79,7 @@ function renderPublication() {
   const track = document.getElementById('energy-publication-track');
 
   track.innerHTML = `
-    <article class="publication-slide ${publication ? `is-${publication.tag}` : ''}">
+    <a class="publication-slide ${publication ? `is-${publication.tag}` : ''}" href="${publication ? `/publikacje/${publication.id}.html` : '#'}">
       <div class="publication-visual ${publication ? `is-${publication.tag}` : ''}">
         <div class="publication-image-stack"></div>
       </div>
@@ -92,13 +92,13 @@ function renderPublication() {
         </div>
 
         <div class="publication-footer">
-          <a class="publication-link-row" href="${publication ? `/publikacje/${publication.id}.html` : '#'}">
+          <span class="publication-link-row">
             <span>czytaj więcej</span>
             <span aria-hidden="true">→</span>
-          </a>
+          </span>
         </div>
       </div>
-    </article>
+    </a>
   `;
 }
 

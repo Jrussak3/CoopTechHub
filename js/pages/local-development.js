@@ -43,16 +43,16 @@ function renderOfferList() {
   list.innerHTML = localOfferItems
     .map(
       (item, index) => `
-        <article class="local-offer-item ${index === 0 ? 'is-open' : ''}" data-offer="${item.number}">
-          <button type="button" class="local-offer-trigger" aria-expanded="${index === 0}">
-            <div class="local-offer-head">
-              <p class="local-offer-number">${item.number}</p>
+        <article class="subpage-offer-item ${index === 0 ? 'is-open' : ''}" data-offer="${item.number}">
+          <button type="button" class="subpage-offer-trigger" aria-expanded="${index === 0}">
+            <div class="subpage-offer-head">
+              <p class="subpage-offer-number">${item.number}</p>
               <h3 class="subpage-step-title">${item.title}</h3>
             </div>
-            <span class="local-offer-indicator" aria-hidden="true">${index === 0 ? '−' : '+'}</span>
+            <span class="subpage-offer-indicator" aria-hidden="true">${index === 0 ? '−' : '+'}</span>
           </button>
 
-          <div class="local-offer-panel">
+          <div class="subpage-offer-panel">
             <p>${item.description}</p>
           </div>
         </article>
@@ -60,9 +60,9 @@ function renderOfferList() {
     )
     .join('');
 
-  list.querySelectorAll('.local-offer-item').forEach((item) => {
-    const trigger = item.querySelector('.local-offer-trigger');
-    const indicator = item.querySelector('.local-offer-indicator');
+  list.querySelectorAll('.subpage-offer-item').forEach((item) => {
+    const trigger = item.querySelector('.subpage-offer-trigger');
+    const indicator = item.querySelector('.subpage-offer-indicator');
 
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.toggle('is-open');

@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="/css/energy-page.css" />
   </head>
   <body>
-    <div class="energy-page page-shell">
+    <div class="subpage-page energy-page page-shell">
       <div data-include="/partials/header.html"></div>
 
       <main>
-        <section class="energy-hero-section" id="start">
-          <div class="energy-hero-copy segment-reveal segment-delay-1">
+        <section class="subpage-hero-section" id="start">
+          <div class="subpage-hero-copy energy-hero-copy segment-reveal segment-delay-1">
             <p class="subpage-hero-badge">Transformacja energetyczna</p>
             <h1>
               <span>Wspieramy w budowie</span>
@@ -32,14 +32,14 @@
           </div>
         </section>
 
-        <section class="energy-services-section">
+        <section class="subpage-services-section">
           <div class="section-header">
             <h2>Czym się zajmujemy?</h2>
           </div>
 
-          <div class="energy-services-grid segment-reveal segment-delay-2">
-            <article class="energy-card">
-              <div class="energy-card-head">
+          <div class="subpage-services-grid segment-reveal segment-stagger segment-delay-2">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/energy/doradztwo.svg" alt="" aria-hidden="true" />
                 <h3>Doradztwo</h3>
               </div>
@@ -50,8 +50,8 @@
               </p>
             </article>
 
-            <article class="energy-card">
-              <div class="energy-card-head">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/energy/wdrozenia.svg" alt="" aria-hidden="true" />
                 <h3>Wdrożenia</h3>
               </div>
@@ -61,8 +61,8 @@
               </p>
             </article>
 
-            <article class="energy-card">
-              <div class="energy-card-head">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/energy/analiza.svg" alt="" aria-hidden="true" />
                 <h3>Analiza</h3>
               </div>
@@ -72,8 +72,8 @@
               </p>
             </article>
 
-            <article class="energy-card">
-              <div class="energy-card-head">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/energy/szkolenia.svg" alt="" aria-hidden="true" />
                 <h3>Szkolenia</h3>
               </div>
@@ -85,13 +85,15 @@
           </div>
         </section>
 
-        <section class="energy-process-section">
+        <section class="subpage-offer-section">
           <div class="section-header">
             <h2>Jak przebiega współpraca?</h2>
           </div>
 
-          <div class="energy-process-list segment-reveal segment-delay-3" id="energy-process-list"></div>
-
+          <div class="subpage-offer-list segment-reveal segment-stagger segment-delay-3" id="energy-process-list"></div>
+        </section>
+        
+        <section class="subpage-pricing-section">
           <div class="energy-pricing segment-reveal segment-delay-4">
             <article class="energy-pricing-card">
               <h3>Samorządy</h3>
@@ -122,24 +124,24 @@
                 energetycznych.
               </p>
               <a class="plz-button" href="#">Przejdź na stronę</a>
-            </div>  
+            </div>
 
             <div class="energy-promo-visual" aria-hidden="true"></div>
           </div>
         </section>
 
-        <section class="energy-projects-section">
+        <section class="subpage-projects-section">
           <div class="energy-section-head">
             <h2>Wybrane realizacje</h2>
             <a href="/nasze-projekty.html" class="publications-link">zobacz wszystkie</a>
           </div>
 
-          <div class="energy-realizations segment-reveal segment-delay-5">
-            <a class="energy-realization" href="/nasze-projekty/spoldzielczosc-energetyczna-ziemi-klodzkiej.html" style="--energy-accent: #FCEBF1">
-              <div class="energy-realization-image" style="background: transparent">
+          <div class="subpage-realizations segment-reveal segment-stagger segment-delay-5">
+            <a class="subpage-realization" href="/nasze-projekty/spoldzielczosc-energetyczna-ziemi-klodzkiej.html" style="--energy-accent: #FCEBF1">
+              <div class="subpage-realization-image" style="background: transparent">
                 <img src="/assets/projects/spoldzielczosc-klodzka.jpg" alt="" aria-hidden="true" />
               </div>
-              <div class="energy-realization-copy">
+              <div class="subpage-realization-copy">
                 <h3>Spółdzielczość energetyczna Ziemi Kłodzkiej</h3>
                 <p>
                   CoopTech Hub, jako pionierski inkubator społeczności energetycznych w Polsce, odegrał rolę w
@@ -149,11 +151,11 @@
               </div>
             </a>
 
-            <a class="energy-realization is-reverse" href="/nasze-projekty/life-comet.html" style="--energy-accent: #FFFDEE">
-              <div class="energy-realization-image" style="background: #FFFDEE">
-                <img class="is-contain" src="/assets/projects/life-comet.jpg" alt="" aria-hidden="true" />
+            <a class="subpage-realization is-reverse" href="/nasze-projekty/life-comet.html" style="--energy-accent: #FFFDEE">
+              <div class="subpage-realization-image" style="background: #FFFDEE">
+                <img src="/assets/projects/life-comet.jpg" alt="" aria-hidden="true" />
               </div>
-              <div class="energy-realization-copy">
+              <div class="subpage-realization-copy">
                 <h3>LIFE Comet 💫</h3>
                 <p>
                   Drogą do sprawiedliwej transformacji energetycznej – a więc do czystej, bezpiecznej i
@@ -164,11 +166,11 @@
               </div>
             </a>
 
-            <a class="energy-realization" href="/nasze-projekty/spoldzielnia-otwarty-jazdow.html" style="--energy-accent: #FCEBF1">
-              <div class="energy-realization-image" style="background: transparent">
+            <a class="subpage-realization" href="/nasze-projekty/spoldzielnia-otwarty-jazdow.html" style="--energy-accent: #FCEBF1">
+              <div class="subpage-realization-image" style="background: transparent">
                 <img src="/assets/projects/otwarty-jazdow.jpg" alt="" aria-hidden="true" />
               </div>
-              <div class="energy-realization-copy">
+              <div class="subpage-realization-copy">
                 <h3>Spółdzielnia Otwarty Jazdów</h3>
                 <p>
                   W 2023 roku założyliśmy, wraz z siedmioma innymi partnerami, pierwszą miejską spółdzielnię
@@ -180,7 +182,7 @@
           </div>
         </section>
 
-        <section class="publications-section energy-publications-section" id="publikacje">
+        <section class="publications-section subpage-publications-section" id="publikacje">
           <div class="publications-header">
             <div class="section-header">
               <h2>Publikacje</h2>
@@ -195,7 +197,7 @@
           </div>
         </section>
 
-        <section class="support-contact-section energy-support-section segment-reveal segment-delay-7">
+        <section class="support-contact-section subpage-support-section">
           <div class="support-contact-backdrop" aria-hidden="true">
             <img src="/assets/contact/contact-energy.jpg" alt="" />
             <div class="support-contact-overlay"></div>

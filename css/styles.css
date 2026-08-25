@@ -1,3 +1,20 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 130px;
+}
+
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root {
   font-family: 'Montserrat', 'Segoe UI', sans-serif;
   color: #111827;
@@ -60,10 +77,38 @@ a {
 .segment-delay-7 { transition-delay: 440ms; }
 .segment-delay-8 { transition-delay: 500ms; }
 
+/* Reveal a container's direct children one after another instead of fading the whole block at once. */
+.segment-reveal.segment-hidden.segment-stagger {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.segment-stagger.segment-hidden > * {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+.segment-stagger.segment-hidden.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.segment-stagger.segment-hidden > *:nth-child(1) { transition-delay: 0ms; }
+.segment-stagger.segment-hidden > *:nth-child(2) { transition-delay: 90ms; }
+.segment-stagger.segment-hidden > *:nth-child(3) { transition-delay: 180ms; }
+.segment-stagger.segment-hidden > *:nth-child(4) { transition-delay: 270ms; }
+.segment-stagger.segment-hidden > *:nth-child(5) { transition-delay: 360ms; }
+.segment-stagger.segment-hidden > *:nth-child(6) { transition-delay: 450ms; }
+.segment-stagger.segment-hidden > *:nth-child(n+7) { transition-delay: 540ms; }
+
 @media (prefers-reduced-motion: reduce) {
   .segment-reveal,
   .segment-reveal.segment-hidden,
-  .segment-reveal.segment-hidden.is-visible {
+  .segment-reveal.segment-hidden.is-visible,
+  .segment-stagger.segment-hidden > *,
+  .segment-stagger.segment-hidden.is-visible > * {
     opacity: 1;
     transform: none;
     transition: none;
@@ -71,7 +116,8 @@ a {
 }
 
 .topbar {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 40;
   display: flex;
@@ -107,6 +153,68 @@ a {
   padding: 0.9rem;
   border-radius: 999px;
   cursor: pointer;
+}
+
+/* Consistent hover state for pill/icon buttons: slight scale + 8% black overlay. */
+.menu-toggle,
+.primary-button,
+.offer-cta,
+.publications-link,
+.plz-button,
+.social-link,
+.team-card-socials a,
+.projects-page-filter,
+.publications-page-filter {
+  position: relative;
+  transition: transform 180ms ease;
+}
+
+.social-link,
+.team-card-socials a {
+  border-radius: 999px;
+}
+
+.menu-toggle::after,
+.primary-button::after,
+.offer-cta::after,
+.publications-link::after,
+.plz-button::after,
+.social-link::after,
+.team-card-socials a::after,
+.projects-page-filter::after,
+.publications-page-filter::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.menu-toggle:hover,
+.primary-button:hover,
+.offer-cta:hover,
+.publications-link:hover,
+.plz-button:hover,
+.social-link:hover,
+.team-card-socials a:hover,
+.projects-page-filter:hover,
+.publications-page-filter:hover {
+  transform: scale(1.04);
+}
+
+.menu-toggle:hover::after,
+.primary-button:hover::after,
+.offer-cta:hover::after,
+.publications-link:hover::after,
+.plz-button:hover::after,
+.social-link:hover::after,
+.team-card-socials a:hover::after,
+.projects-page-filter:hover::after,
+.publications-page-filter:hover::after {
+  opacity: 1;
 }
 
 .menu-toggle span {
@@ -437,6 +545,11 @@ a {
   height: 24px;
   padding: 0;
   pointer-events: none;
+  transition: transform 180ms ease;
+}
+
+.news-card:hover .news-arrow {
+  transform: rotate(-45deg);
 }
 
 .logos-section {
@@ -620,6 +733,11 @@ a {
   height: 24px;
   padding: 0;
   pointer-events: none;
+  transition: transform 180ms ease;
+}
+
+.publication-highlight-card:hover .publication-highlight-arrow {
+  transform: rotate(-45deg);
 }
 
 .carousel-arrow {
@@ -679,10 +797,11 @@ a {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
   color: inherit;
   text-decoration: none;
-  transition: box-shadow 200ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .publication-slide:hover {
+  transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
 }
 
@@ -760,6 +879,7 @@ a {
   margin: 0;
   font-size: 2.125rem;
   line-height: 1.2;
+  font-weight: 400;
   color: #111111;
 }
 

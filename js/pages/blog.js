@@ -23,19 +23,14 @@ function renderPosts() {
   grid.innerHTML = blogPosts
     .map(
       (post) => `
-        <article class="blog-page-card">
+        <a class="blog-page-card" href="${post.url}" target="_blank" rel="noopener noreferrer">
           <p class="blog-page-card-date">${post.date}</p>
           <h3>${post.title}</h3>
           <p>${post.description}</p>
-          <a
-            class="blog-page-card-link"
-            href="${post.url}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <span class="blog-page-card-link">
             czytaj wpis <span aria-hidden="true">→</span>
-          </a>
-        </article>
+          </span>
+        </a>
       `,
     )
     .join('');
