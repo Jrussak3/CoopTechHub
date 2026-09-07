@@ -9,6 +9,21 @@ async function includePartials() {
   );
 }
 
+function syncTopbarHeightVar() {
+  const topbar = document.querySelector('.topbar');
+
+  if (!topbar) {
+    return;
+  }
+
+  const setVar = () => {
+    document.documentElement.style.setProperty('--topbar-height', `${topbar.offsetHeight}px`);
+  };
+
+  setVar();
+  window.addEventListener('resize', setVar);
+}
+
 function initMobileMenu() {
   const toggle = document.getElementById('menu-toggle');
   const close = document.getElementById('menu-close');
@@ -146,6 +161,7 @@ export async function initShell({ topbarClass } = {}) {
     document.querySelector('.topbar')?.classList.add(topbarClass);
   }
 
+  syncTopbarHeightVar();
   initMobileMenu();
   stripHashFromUrl();
   initScrollReveal();
