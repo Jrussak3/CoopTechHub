@@ -46,7 +46,11 @@ function projectCard(project) {
   const href = localArticle ? `/nasze-projekty/${project.id}.html` : project.url;
 
   return `
-    <article class="projects-page-card is-${project.tag}">
+    <a
+      class="projects-page-card is-${project.tag}"
+      href="${href}"
+      ${localArticle ? '' : 'target="_blank" rel="noopener noreferrer"'}
+    >
       <div class="projects-page-card-image">
         <img src="${project.image}" alt="" aria-hidden="true" />
       </div>
@@ -55,15 +59,11 @@ function projectCard(project) {
         <p class="projects-page-card-tag">${projectTagLabels[project.tag]}</p>
         <h3>${project.title}</h3>
         <p class="projects-page-card-description">${project.description}</p>
-        <a
-          class="projects-page-card-link"
-          href="${href}"
-          ${localArticle ? '' : 'target="_blank" rel="noopener noreferrer"'}
-        >
+        <span class="projects-page-card-link">
           więcej <span aria-hidden="true">→</span>
-        </a>
+        </span>
       </div>
-    </article>
+    </a>
   `;
 }
 

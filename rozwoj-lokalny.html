@@ -2,6 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rozwój lokalny — Centrum Technologii Spółdzielczych</title>
     <meta name="description" content="Wsparcie samorządów i społeczności w budowaniu spółdzielni rozwojowych, miejskiej odporności i lokalnych systemów żywnościowych." />
@@ -17,12 +18,12 @@
     <link rel="stylesheet" href="/css/local-development-page.css" />
   </head>
   <body>
-    <div class="local-page page-shell">
+    <div class="subpage-page local-page page-shell">
       <div data-include="/partials/header.html"></div>
 
       <main>
-        <section class="local-hero-section" id="start">
-          <div class="local-hero-copy segment-reveal segment-delay-1">
+        <section class="subpage-hero-section" id="start">
+          <div class="subpage-hero-copy segment-reveal segment-delay-1">
             <p class="subpage-hero-badge">Rozwój lokalny</p>
             <h1>
               <span>Pomagamy rozwinąć</span>
@@ -30,16 +31,23 @@
             </h1>
             <a class="primary-button" href="#kontakt">Skontaktuj się</a>
           </div>
+
+          <img
+            class="subpage-hero-illustration"
+            src="/assets/lokalny-rozwoj-hero-illustration.png"
+            alt=""
+            aria-hidden="true"
+          />
         </section>
 
-        <section class="local-services-section">
+        <section class="subpage-services-section">
           <div class="section-header">
             <h2>Czym się zajmujemy?</h2>
           </div>
 
-          <div class="local-services-grid segment-reveal segment-delay-2">
-            <article class="local-service-card">
-              <div class="local-service-head">
+          <div class="subpage-services-grid segment-reveal segment-stagger segment-delay-2">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/local/spoldzielnie-rozwojowe.svg" alt="" aria-hidden="true" />
                 <h3>Spółdzielnie rozwojowe</h3>
               </div>
@@ -50,8 +58,8 @@
               </p>
             </article>
 
-            <article class="local-service-card">
-              <div class="local-service-head">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/local/miejska-odpornosc.svg" alt="" aria-hidden="true" />
                 <h3>Miejska odporność</h3>
               </div>
@@ -62,8 +70,8 @@
               </p>
             </article>
 
-            <article class="local-service-card">
-              <div class="local-service-head">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/local/rolnictwo-miejskie.svg" alt="" aria-hidden="true" />
                 <h3>Rolnictwo miejskie</h3>
               </div>
@@ -74,8 +82,8 @@
               </p>
             </article>
 
-            <article class="local-service-card">
-              <div class="local-service-head">
+            <article class="subpage-card">
+              <div class="subpage-card-head">
                 <img src="/assets/icons/local/programy-samorzady.svg" alt="" aria-hidden="true" />
                 <h3>Programy dla samorządów</h3>
               </div>
@@ -88,26 +96,26 @@
           </div>
         </section>
 
-        <section class="local-offer-section">
+        <section class="subpage-offer-section">
           <div class="section-header">
             <h2>Oferta</h2>
           </div>
 
-          <div class="local-offer-list segment-reveal segment-delay-3" id="local-offer-list"></div>
+          <div class="subpage-offer-list segment-reveal segment-stagger segment-delay-3" id="local-offer-list"></div>
         </section>
 
-        <section class="local-projects-section">
+        <section class="subpage-projects-section">
           <div class="energy-section-head">
             <h2>Wybrane realizacje</h2>
             <a href="/nasze-projekty.html" class="publications-link">zobacz wszystkie</a>
           </div>
 
-          <div class="local-realizations segment-reveal segment-delay-4">
-            <a class="local-realization" href="/nasze-projekty/most-spoldzielcza-farma-miejska.html" style="--local-accent: #FCEBF1">
-              <div class="local-realization-image" style="background: transparent">
+          <div class="subpage-realizations segment-reveal segment-stagger segment-delay-4">
+            <a class="subpage-realization" href="/nasze-projekty/most-spoldzielcza-farma-miejska.html" style="--local-accent: #FCEBF1">
+              <div class="subpage-realization-image" style="background: transparent">
                 <img src="/assets/projects/most-farma.jpg" alt="" aria-hidden="true" />
               </div>
-              <div class="local-realization-copy">
+              <div class="subpage-realization-copy">
                 <h3>MOST Spółdzielcza farma miejska</h3>
                 <p>
                   Powołaliśmy Spółdzielnię MOST, która poprowadzi 3,6 ha farmę miejską w Warszawie. Będzie to
@@ -117,11 +125,11 @@
               </div>
             </a>
 
-            <a class="local-realization is-reverse" href="/nasze-projekty/akademia-miejskiej-odpornosci-gzm.html" style="--local-accent: #FFFDEE">
-              <div class="local-realization-image" style="background: #FFFDEE">
+            <a class="subpage-realization is-reverse" href="/nasze-projekty/akademia-miejskiej-odpornosci-gzm.html" style="--local-accent: #FFFDEE">
+              <div class="subpage-realization-image" style="background: #FFFDEE">
                 <img src="/assets/projects/akademia-gzm.jpg" alt="" aria-hidden="true" />
               </div>
-              <div class="local-realization-copy">
+              <div class="subpage-realization-copy">
                 <h3>Akademia Miejskiej Odporności dla GZM 🏡</h3>
                 <p>
                   Przeprowadziliśmy Akademię Miejskiej Odporności dla Górnośląsko-Zagłębiowskiej Metropolii, czyli
@@ -132,11 +140,11 @@
               </div>
             </a>
 
-            <a class="local-realization" href="/nasze-projekty/regenerator-miast.html" style="--local-accent: #FCEBF1">
-              <div class="local-realization-image" style="background: transparent">
+            <a class="subpage-realization" href="/nasze-projekty/regenerator-miast.html" style="--local-accent: #FCEBF1">
+              <div class="subpage-realization-image" style="background: transparent">
                 <img src="/assets/projects/regenerator-miast.jpg" alt="" aria-hidden="true" />
               </div>
-              <div class="local-realization-copy">
+              <div class="subpage-realization-copy">
                 <h3>Regenerator Miast</h3>
                 <p>
                   Dotychczasowy model rozwoju polskich miast się wyczerpał. Pieniądze z zewnątrz – unijne dotacje,
@@ -150,7 +158,7 @@
           </div>
         </section>
 
-        <section class="publications-section local-publications-section" id="publikacje">
+        <section class="publications-section subpage-publications-section" id="publikacje">
           <div class="publications-header">
             <div class="section-header">
               <h2>Publikacje</h2>
@@ -177,7 +185,7 @@
           </div>
         </section>
 
-        <section class="support-contact-section local-support-section segment-reveal segment-delay-6">
+        <section class="support-contact-section subpage-support-section">
           <div class="support-contact-backdrop" aria-hidden="true">
             <img src="/assets/contact/contact-local-development.jpg" alt="" />
             <div class="support-contact-overlay"></div>

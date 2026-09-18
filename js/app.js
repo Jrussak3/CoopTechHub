@@ -9,6 +9,43 @@ async function includePartials() {
   );
 }
 
+function syncTopbarHeightVar() {
+  const topbar = document.querySelector('.topbar');
+
+  if (!topbar) {
+    return;
+  }
+
+  const setVar = () => {
+    document.documentElement.style.setProperty('--topbar-height', `${topbar.offsetHeight}px`);
+  };
+
+  setVar();
+  window.addEventListener('resize', setVar);
+}
+
+function initEnergyFab() {
+  const fab = document.getElementById('energy-fab');
+  const closeButton = document.getElementById('energy-fab-close');
+
+  if (!fab || !closeButton) {
+    return;
+  }
+
+  const dismissKey = 'energy-fab-dismissed';
+
+  if (localStorage.getItem(dismissKey) === '1') {
+    fab.hidden = true;
+    return;
+  }
+
+  closeButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    fab.hidden = true;
+    localStorage.setItem(dismissKey, '1');
+  });
+}
+
 function initMobileMenu() {
   const toggle = document.getElementById('menu-toggle');
   const close = document.getElementById('menu-close');
@@ -146,6 +183,8 @@ export async function initShell({ topbarClass } = {}) {
     document.querySelector('.topbar')?.classList.add(topbarClass);
   }
 
+  syncTopbarHeightVar();
+  initEnergyFab();
   initMobileMenu();
   stripHashFromUrl();
   initScrollReveal();

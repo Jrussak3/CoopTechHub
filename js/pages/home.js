@@ -9,7 +9,7 @@ function renderNews() {
     .slice(0, 6)
     .map(
       (post) => `
-        <a class="news-card" href="${post.url}" target="_blank" rel="noopener noreferrer">
+        <a class="news-card" href="${post.url}">
           <h3>${post.title}</h3>
           <p class="news-description">${post.description}</p>
           <img class="news-arrow" src="/assets/arrow_right_bottom.svg" alt="" aria-hidden="true" />
