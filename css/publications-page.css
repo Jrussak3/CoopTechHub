@@ -88,10 +88,13 @@
 
 .publications-page-card {
   position: relative;
+  display: block;
   border: 2px solid #e5e7eb;
   background: #ffffff;
   min-height: 370px;
   padding: 2rem 1.6rem 3.8rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .publications-page-card.is-cyfryzacja {
@@ -104,6 +107,10 @@
 
 .publications-page-card.is-rozwoj-lokalny {
   border-color: #fafcf0;
+}
+
+.publications-page-card:hover {
+  border-color: #111111;
 }
 
 .publications-page-card__body {

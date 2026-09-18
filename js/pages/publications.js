@@ -24,7 +24,7 @@ function getFilteredPublications() {
 
 function renderPublicationCard(publication) {
   return `
-    <article class="publications-page-card is-${publication.tag}">
+    <a class="publications-page-card is-${publication.tag}" href="/publikacje/${publication.id}.html">
       <div class="publications-page-card__body">
         <p class="publications-page-card__title">📄 ${publication.title}</p>
         <p class="publications-page-card__meta">
@@ -33,10 +33,8 @@ function renderPublicationCard(publication) {
         <p class="publications-page-card__description">${publication.description}</p>
         <p class="publications-page-card__tag">${publicationTagLabels[publication.tag]}</p>
       </div>
-      <a class="publications-page-card__action" href="/publikacje/${publication.id}.html" aria-label="${publication.attachment.label}">
-        <span aria-hidden="true">→</span>
-      </a>
-    </article>
+      <span class="publications-page-card__action" aria-hidden="true">→</span>
+    </a>
   `;
 }
 

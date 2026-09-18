@@ -21,7 +21,7 @@ const rawPublications = [
     thumbnailUrl: '/assets/covers/praca-ktorej-nie-zabierze-ci-ai.jpg',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2026/06/praca_ktorej_nie_zabierze_ci_ai_cooptechhub.pdf',
+      url: '/assets/publications/rolnictwo-jako-praca-przyszlosci-ai.pdf',
     },
   },
   {
@@ -35,7 +35,7 @@ const rawPublications = [
     thumbnailUrl: '/assets/covers/miasta-dla-suwerennosci.png',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2025/07/Miasta-dla-suwerennosci-zywnosciowej_RAPORT.pdf',
+      url: '/assets/publications/miasta-dla-suwerennosci-zywnosciowej.pdf',
     },
   },
   {
@@ -49,7 +49,7 @@ const rawPublications = [
     thumbnailUrl: '/assets/covers/zwiazek-serc.png',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2024/10/serc_studiumprzypadku.pdf',
+      url: '/assets/publications/jak-powstaja-koalicje-spolecznosci-energetycznych-studium-przypadku-zwiazku-serc.pdf',
     },
   },
   {
@@ -63,7 +63,7 @@ const rawPublications = [
     thumbnailUrl: '/assets/covers/hybrydowe-targowiska.png',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2024/09/Hybrydowe-targowiska-jako-centra-zycia-lokalnego-PDF.pdf',
+      url: '/assets/publications/hybrydowe-targowiska.pdf',
     },
   },
   {
@@ -77,7 +77,7 @@ const rawPublications = [
     thumbnailUrl: '/assets/covers/miejska-energetyka-obywatelska.png',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2024/04/Miejska_energetyka_obywatelska_pdf.pdf',
+      url: '/assets/publications/miejska-energetyka-obywatelska.pdf',
     },
   },
   {
@@ -90,7 +90,7 @@ const rawPublications = [
     tag: 'rozwoj-lokalny',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2024/06/AMO-Akademia-Miejskiej-Odpornosci-PDF-optimized.pdf',
+      url: '/assets/publications/akademia-miejskiej-odpornosci-raport.pdf',
     },
   },
   {
@@ -103,7 +103,7 @@ const rawPublications = [
     tag: 'energetyka',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2023/12/Power-to-the-People.pdf',
+      url: '/assets/publications/power-to-the-people.pdf',
     },
   },
   {
@@ -116,7 +116,7 @@ const rawPublications = [
     tag: 'rozwoj-lokalny',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2023/10/Regeneracja-Spoleczenstwo.pdf',
+      url: '/assets/publications/regeneracja-spoleczenstwo.pdf',
     },
   },
   {
@@ -130,7 +130,7 @@ const rawPublications = [
     thumbnailUrl: '/assets/covers/krakowska-energetyka-obywatelska.png',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2023/09/Krakowska-energetyka-obywatelska.pdf',
+      url: '/assets/publications/krakowska-energetyka-obywatelska.pdf',
     },
   },
   {
@@ -143,7 +143,7 @@ const rawPublications = [
     tag: 'rozwoj-lokalny',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2023/09/Spoldzielnia-rownokregi-Ekonomia-troski-w-dzialaniu-PDF.pdf',
+      url: '/assets/publications/spoldzielnia-rownokregi.pdf',
     },
   },
   {
@@ -156,7 +156,7 @@ const rawPublications = [
     tag: 'rozwoj-lokalny',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2023/06/Spoldzielcza-farma-miejska.pdf',
+      url: '/assets/publications/spoldzielcza-farma-miejska.pdf',
     },
   },
   {
@@ -169,7 +169,7 @@ const rawPublications = [
     tag: 'rozwoj-lokalny',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2022/11/Pakiet-Miejskiej-Odpornosci.pdf',
+      url: '/assets/publications/pakiet-miejskiej-odpornosci.pdf',
     },
   },
   {
@@ -182,7 +182,7 @@ const rawPublications = [
     tag: 'energetyka',
     attachment: {
       label: 'Pobierz manual (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2023/07/Manual-Spolecznosci-Energetycznych-CoopTech-Hub.pdf',
+      url: '/assets/publications/manual-spolecznosci-energetycznych.pdf',
     },
   },
   {
@@ -195,7 +195,7 @@ const rawPublications = [
     tag: 'rozwoj-lokalny',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2023/05/Inicjatywa-Nowa-Solidarnosc.pdf',
+      url: '/assets/publications/inicjatywa-nowa-solidarnosc.pdf',
     },
   },
   {
@@ -208,7 +208,7 @@ const rawPublications = [
     tag: 'energetyka',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2022/01/Spoldzielcza_Transformacja.pdf',
+      url: '/assets/publications/spoldzielcza-transformacja-sprawiedliwa-transformacja-operacjonalizacja.pdf',
     },
   },
   {
@@ -234,7 +234,7 @@ const rawPublications = [
     tag: 'cyfryzacja',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2021/09/CoopTech-raport-wersja-mobilna-1.pdf',
+      url: '/assets/publications/spoldzielczy-plan-odbudowy.pdf',
     },
   },
   {
@@ -247,7 +247,7 @@ const rawPublications = [
     tag: 'cyfryzacja',
     attachment: {
       label: 'Pobierz raport (PDF)',
-      url: 'https://www.hub.coop/wp-content/uploads/2021/09/CoopTech-Platformowy-kooperatyzm-jako-silnik-solidarnego-rozwoju.pdf',
+      url: '/assets/publications/cooptech-platformowy-kooperatyzm-jako-silnik-solidarnego-rozwoju.pdf',
     },
   },
 ];

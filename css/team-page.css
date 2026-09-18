@@ -102,6 +102,11 @@
   font-size: 0.98rem;
 }
 
+.team-card-bio-placeholder {
+  font-style: italic;
+  color: #9ca3af;
+}
+
 .team-card-socials {
   display: flex;
   gap: 0.75rem;

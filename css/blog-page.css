@@ -57,6 +57,11 @@
   gap: 2rem;
 }
 
+.blog-page-load-more {
+  height: 1px;
+  margin-top: 3rem;
+}
+
 .blog-page-card {
   display: flex;
   flex-direction: column;
@@ -74,6 +79,7 @@
 }
 
 .blog-page-card-date {
+  flex: 0 0 auto;
   margin: 0;
   color: #6e6e6e;
   font-size: 0.9rem;
@@ -81,6 +87,7 @@
 }
 
 .blog-page-card h3 {
+  flex: 0 0 auto;
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.35;
@@ -88,7 +95,7 @@
   color: #111111;
 }
 
-.blog-page-card p {
+.blog-page-card p:not(.blog-page-card-date) {
   flex: 1;
   margin: 0;
   color: #4b5563;
